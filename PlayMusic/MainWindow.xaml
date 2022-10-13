@@ -1,0 +1,24 @@
+﻿<Window x:Class="PlayMusic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlayMusic"
+        mc:Ignorable="d"
+        Title="Player music" Height="450" Width="800">
+    <Grid Margin="0,25,0,-25">
+
+        <ListView x:Name="musicList" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Content="Anterior" Margin="0,125,0,-125" Click="Button_Click"/>
+        <CheckBox Content="Reprodusir/Pausar" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+        <Button Content="Próxima" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>                                                                           
