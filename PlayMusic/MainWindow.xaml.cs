@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -46,7 +47,7 @@ namespace PlayMusic
             musicList.ItemsSource = filesMusic;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_anterior(object sender, RoutedEventArgs e)
         {
             // free the stream
             Bass.BASS_StreamFree(stream);
@@ -68,7 +69,7 @@ namespace PlayMusic
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_proxima(object sender, RoutedEventArgs e)
         {
             // free the stream
             Bass.BASS_StreamFree(stream);
@@ -91,7 +92,7 @@ namespace PlayMusic
 
         }
 
-        private void CheckBox_Checked(object sender, System.EventArgs e)
+        private void CheckBox_PausaReprodus(object sender, System.EventArgs e)
         {
             CheckBox AutoClip = sender as CheckBox;
 
@@ -106,14 +107,20 @@ namespace PlayMusic
 
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListView_SelectionChanged(object sender, KeyEventArgs e)
         {
-            // free the stream
-            Bass.BASS_StreamFree(stream);
-            // free BASS
-            Bass.BASS_Free();
+            if (e.Key == Key.Enter)
+            {
+                var MusicSelected = (CollectionView)CollectionViewSource.GetDefaultView(musicList.SelectedItems);
 
-            playFronArray(path + @"\" + e.AddedItems[0].ToString());
+                // free the stream
+                Bass.BASS_StreamFree(stream);
+                // free BASS
+                Bass.BASS_Free();
+
+                playFronArray(path + @"\" + MusicSelected.CurrentItem.ToString());
+            }
+
         }
 
         private void playFronArray(string file)

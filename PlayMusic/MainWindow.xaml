@@ -8,7 +8,7 @@
         Title="Player music" Height="450" Width="800">
     <Grid Margin="0,25,0,-25">
 
-        <ListView x:Name="musicList" SelectionChanged="ListView_SelectionChanged">
+        <ListView x:Name="musicList" KeyDown="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -16,9 +16,9 @@
             </ListView.View>
         </ListView>
 
-        <Button Content="Anterior" Margin="0,125,0,-125" Click="Button_Click"/>
-        <CheckBox Content="Reprodusir/Pausar" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
-        <Button Content="Próxima" Click="Button_Click_1"/>
+        <Button Content="Anterior" Margin="0,125,0,-125" Click="Button_anterior"/>
+        <CheckBox Content="Reprodusir/Pausar" Checked="CheckBox_PausaReprodus" Unchecked="CheckBox_PausaReprodus"/>
+        <Button Content="Próxima" Click="Button_proxima"/>
 
     </Grid>
 </Window>                                                                           
